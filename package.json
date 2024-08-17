@@ -7,5 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "fight CLUB",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-useragent": "^1.0.15",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.5.3"
+  }
 }
