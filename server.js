@@ -5,11 +5,12 @@ const helmet = require('helmet');
 var useragent = require('express-useragent');
 var mongoose =require('mongoose');
 var path = require('path');
+require('dotenv').config()
 
 let app = express();
 
 //Route file requiring (importing)
-var userReqRoute=require("./Routes/userReqRoute");
+// var userReqRoute=require("./Routes/userReqRoute");
 // var driverRoute=require("./Routes/driverRoute");
 // var driverlocRoute=require("./Routes/driverlocRoute");
 
@@ -20,8 +21,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json({ limit: '150mb' }));
 
 //DATABASE URL
-// 2hy7R2mF5qI5FAUW password
-mongoose.connect(process.env.MONGOURL || 'mongodb+srv://hostsampletesting:2hy7R2mF5qI5FAUW@cluster0.ucm4imb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => { 
+mongoose.connect(process.env.MONGODB_URL).then(() => { 
     console.log("Data Base connected")
 }).catch((ex) => {
     console.log("Db connection error")
@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGOURL || 'mongodb+srv://hostsampletesting:2hy7R2
 var db = mongoose.connection;
 
 // serve the public
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 //Port Declaration
 var port = process.env.PORT || 3201;
@@ -51,7 +51,7 @@ app.use((req, res, next) => {
 })
 
 //function usage
-app.use(userReqRoute);
+// app.use(userReqRoute);
 
 //Route for checking the server health
 app.get('/health', async(req, res) => {
