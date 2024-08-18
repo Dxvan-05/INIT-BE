@@ -10,9 +10,8 @@ require('dotenv').config()
 let app = express();
 
 //Route file requiring (importing)
-// var userReqRoute=require("./Routes/userReqRoute");
-// var driverRoute=require("./Routes/driverRoute");
-// var driverlocRoute=require("./Routes/driverlocRoute");
+var userRoute=require("./Routes/userRoute");
+
 
 //BODYPARSER
 app.use(bodyParser.urlencoded({
@@ -51,7 +50,7 @@ app.use((req, res, next) => {
 })
 
 //function usage
-// app.use(userReqRoute);
+app.use(userRoute);
 
 //Route for checking the server health
 app.get('/health', async(req, res) => {
