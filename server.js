@@ -51,11 +51,22 @@ app.use((req, res, next) => {
     next();
 })
 
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; img-src *; script-src 'self';");
+    next();
+});
+
+
 //function usage
 app.use(userRoute);
 app.use(execomRoute);
 app.use(eventRoute);
 app.use(contentRoute);
+
+app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/admin', express.static(path.join(__dirname, 'public')));
+app.use('/admin/execom', express.static(path.join(__dirname, 'public')));
+app.use('/admin/events', express.static(path.join(__dirname, 'public')));
 
 //Route for checking the server health
 app.get('/health', async(req, res) => {
