@@ -65,6 +65,7 @@ app.use(eventRoute);
 app.use(contentRoute);
 app.use(contactRoute);
 
+//Serving React files
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/admin', express.static(path.join(__dirname, 'public')));
 app.use('/admin/execom', express.static(path.join(__dirname, 'public')));
