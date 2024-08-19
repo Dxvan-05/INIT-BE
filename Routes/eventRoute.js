@@ -94,6 +94,14 @@ router.post("/event/create",async(req,res)=>{
             });
         }
     });
-    
+
+    router.get('/event/data', async (req, res) => {
+        try {
+          const items = await EventModel.find();
+          res.json({ status: 'success', data: items });
+        } catch (err) {
+          res.status(500).json({ status: 'error', message: err.message });
+        }
+      });
 
     module.exports = router;

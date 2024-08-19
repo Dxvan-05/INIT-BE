@@ -131,5 +131,13 @@ router.post("/execom/create",async(req,res)=>{
         }
     });
     
+    router.get('/execom/data', async (req, res) => {
+        try {
+          const items = await ExecomModel.find();
+          res.json({ status: 'success', data: items });
+        } catch (err) {
+          res.status(500).json({ status: 'error', message: err.message });
+        }
+      });
 
     module.exports = router;

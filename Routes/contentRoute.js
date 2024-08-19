@@ -71,5 +71,13 @@ router.post("/para/create",async(req,res)=>{
         }
     });
     
+    router.get('/content/data', async (req, res) => {
+        try {
+          const items = await ContentModel.find();
+          res.json({ status: 'success', data: items });
+        } catch (err) {
+          res.status(500).json({ status: 'error', message: err.message });
+        }
+      });
 
     module.exports = router;
