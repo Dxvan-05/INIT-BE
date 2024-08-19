@@ -107,6 +107,48 @@ router.post("/event/create",async(req,res)=>{
         }
     });
 
+    router.put("/update/event", async (req, res) => {
+        try {
+            const {_id,title,description,imageUrl,registerLink} = req.body;
+            if (!_id) {
+                return res.status(200).json({
+                    status: false,
+                    msg: "_id is not defined"
+                });
+            }
+    
+            const updatedEvent = await EventModel.findByIdAndUpdate(
+                _id,
+                {
+                    title: title,
+                    description: description,
+                    imageUrl: imageUrl,
+                    registerLink: registerLink
+                },
+                { new: true }
+            );
+    
+            if (updatedEvent) {
+                return res.status(200).json({
+                    status: true,
+                    msg: "event updated successfully",
+                    event: updatedEvent
+                });
+            } else {
+                return res.status(200).json({
+                    status: false,
+                    msg: "No event found with the provided _id"
+                });
+            }
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({
+                status: false,
+                msg: "An error occurred while updating the event"
+            });
+        }
+    });
+
     router.get('/event/data', async (req, res) => {
         try {
           const items = await EventModel.find();

@@ -131,6 +131,50 @@ router.post("/execom/create",async(req,res)=>{
         }
     });
     
+    router.put("/update/execom", async (req, res) => {
+        try {
+            const {_id,name,position,description,imageUrl,linkedInUrl,InstagramUrl} = req.body;
+            if (!_id) {
+                return res.status(200).json({
+                    status: false,
+                    msg: "_id is not defined"
+                });
+            }
+    
+            const updatedMember = await ExecomModel.findByIdAndUpdate(
+                _id,
+                {
+                    name: name,
+                    position: position,
+                    description: description,
+                    imageUrl: imageUrl,
+                    linkedInUrl: linkedInUrl,
+                    InstagramUrl: InstagramUrl
+                },
+                { new: true }
+            );
+    
+            if (updatedMember) {
+                return res.status(200).json({
+                    status: true,
+                    msg: "Member updated successfully",
+                    member: updatedMember
+                });
+            } else {
+                return res.status(200).json({
+                    status: false,
+                    msg: "No member found with the provided _id"
+                });
+            }
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({
+                status: false,
+                msg: "An error occurred while updating the member"
+            });
+        }
+    });
+    
     router.get('/execom/data', async (req, res) => {
         try {
           const items = await ExecomModel.find();
