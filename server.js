@@ -14,6 +14,7 @@ var userRoute=require("./Routes/userRoute");
 var execomRoute=require("./Routes/execomRoute");
 var eventRoute=require("./Routes/eventRoute");
 var contentRoute=require("./Routes/contentRoute");
+var contactRoute=require("./Routes/contactRoute");
 
 //BODYPARSER
 app.use(bodyParser.urlencoded({
@@ -62,6 +63,7 @@ app.use(userRoute);
 app.use(execomRoute);
 app.use(eventRoute);
 app.use(contentRoute);
+app.use(contactRoute);
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/admin', express.static(path.join(__dirname, 'public')));
