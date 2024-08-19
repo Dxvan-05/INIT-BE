@@ -11,7 +11,7 @@ let app = express();
 
 //Route file requiring (importing)
 var userRoute=require("./Routes/userRoute");
-
+var execomRoute=require("./Routes/execomRoute");
 
 //BODYPARSER
 app.use(bodyParser.urlencoded({
@@ -51,6 +51,7 @@ app.use((req, res, next) => {
 
 //function usage
 app.use(userRoute);
+app.use(execomRoute);
 
 //Route for checking the server health
 app.get('/health', async(req, res) => {
