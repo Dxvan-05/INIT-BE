@@ -4,7 +4,7 @@ var EventModel=require("../Models/eventModel");
 
 router.post("/event/create",async(req,res)=>{
     try{
-        var{title,description,imageUrl}=req.body;
+        var{title,description,imageUrl,registerLink}=req.body;
         if(title==null || title==undefined)
             {
                 res.status(200).json(
@@ -38,11 +38,23 @@ router.post("/event/create",async(req,res)=>{
                 )
                 return;
             }
+        if(registerLink==null || registerLink==undefined)
+            {
+                res.status(200).json(
+                    {
+                        status:false,
+                        msg:"registerLink is  not defined"
+        
+                    }
+                )
+                return;
+            }
 
         var data=new EventModel();
         data.title=title;
         data.description=description;
         data.imageUrl=imageUrl;
+        data.registerLink=registerLink;
         await data.save()
 
         res.status(200).json(

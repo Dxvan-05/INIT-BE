@@ -9,6 +9,9 @@ var eventSchema=mongoose.Schema({
     imageUrl:{
         type:String
     },
+    registerLink:{
+        type:String
+    },
     status:{
         type:String,
         default:"Active"
