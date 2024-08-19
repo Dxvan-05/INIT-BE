@@ -2,7 +2,7 @@ const express = require('express');
 var router= express.Router();
 var ContentModel=require("../Models/contentModel");
 
-router.post("/paragraph/create",async(req,res)=>{
+router.post("/para/create",async(req,res)=>{
     try{
         var{para}=req.body;
         if(para==null || para==undefined)
