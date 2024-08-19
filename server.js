@@ -13,6 +13,7 @@ let app = express();
 var userRoute=require("./Routes/userRoute");
 var execomRoute=require("./Routes/execomRoute");
 var eventRoute=require("./Routes/eventRoute");
+var contentRoute=require("./Routes/contentRoute");
 
 //BODYPARSER
 app.use(bodyParser.urlencoded({
@@ -54,6 +55,7 @@ app.use((req, res, next) => {
 app.use(userRoute);
 app.use(execomRoute);
 app.use(eventRoute);
+app.use(contentRoute);
 
 //Route for checking the server health
 app.get('/health', async(req, res) => {
