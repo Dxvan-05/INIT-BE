@@ -70,6 +70,9 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/admin', express.static(path.join(__dirname, 'public')));
 app.use('/admin/execom', express.static(path.join(__dirname, 'public')));
 app.use('/admin/events', express.static(path.join(__dirname, 'public')));
+app.use('/admin/gallery', express.static(path.join(__dirname, 'public')));
+
+
 
 //Route for checking the server health
 app.get('/health', async(req, res) => {
