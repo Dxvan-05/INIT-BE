@@ -73,6 +73,7 @@ app.use('/admin', express.static(path.join(__dirname, 'public')));
 app.use('/admin/execom', express.static(path.join(__dirname, 'public')));
 app.use('/admin/events', express.static(path.join(__dirname, 'public')));
 app.use('/admin/gallery', express.static(path.join(__dirname, 'public')));
+app.use('/admin/contact', express.static(path.join(__dirname, 'public')));
 
 
 
