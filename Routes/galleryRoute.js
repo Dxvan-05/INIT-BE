@@ -72,7 +72,7 @@ router.post("/gallery/create",async(req,res)=>{
 
     router.get('/gallery/data', async (req, res) => {
         try {
-          const items = await GalleryModel.findOne({ _id: src });
+          const items = await GalleryModel.find();
           res.json({ status: 'success', data: items });
         } catch (err) {
           res.status(500).json({ status: 'error', message: err.message });
