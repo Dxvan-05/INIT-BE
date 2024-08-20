@@ -34,7 +34,7 @@ router.post("/gallery/create",async(req,res)=>{
     }
     });
 
-    router.post("/contact/delete", async (req, res) => {
+    router.post("/gallery/delete", async (req, res) => {
         try {
             var {_id} = req.body;
     
@@ -70,7 +70,7 @@ router.post("/gallery/create",async(req,res)=>{
         }
     });
 
-    router.get('/contact/data', async (req, res) => {
+    router.get('/gallery/data', async (req, res) => {
         try {
           const items = await GalleryModel.findOne({ _id: src });
           res.json({ status: 'success', data: items });
