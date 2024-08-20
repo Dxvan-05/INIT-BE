@@ -15,6 +15,7 @@ var execomRoute=require("./Routes/execomRoute");
 var eventRoute=require("./Routes/eventRoute");
 var contentRoute=require("./Routes/contentRoute");
 var contactRoute=require("./Routes/contactRoute");
+var galleryRoute=require("./Routes/galleryRoute");
 
 //BODYPARSER
 app.use(bodyParser.urlencoded({
@@ -64,6 +65,7 @@ app.use(execomRoute);
 app.use(eventRoute);
 app.use(contentRoute);
 app.use(contactRoute);
+app.use(galleryRoute);
 
 //Serving React files
 app.use('/', express.static(path.join(__dirname, 'public')));
