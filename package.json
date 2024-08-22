@@ -4,7 +4,7 @@
   "description": "INIT is a association of IT DEPT of AJCE, Its BE is this.",
   "main": "index.js",
   "scripts": {
-    "run": "node server.js"
+    "start": "node server.js"
   },
   "author": "fight CLUB",
   "license": "ISC",
